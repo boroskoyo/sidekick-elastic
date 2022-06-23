@@ -1,0 +1,16 @@
+{
+  "name": "sidekickelastic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.2.1",
+    "ws": "^8.8.0"
+  }
+}
