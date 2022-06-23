@@ -9,7 +9,7 @@
   <a href="https://www.runsidekick.com">
     <img src="Sidekick_Logo.svg" alt="Logo" width="200" height="80">
   </a>
-  <h2 align="center">+</h3>
+  <h2 align="center">+</h2>
    <a href="https://www.runsidekick.com">
     <img src="Elasticsearch_logo.png" alt="Logo" width="227" height="50">
   </a>
@@ -59,13 +59,13 @@
 ## About The Recipe
 
 
-Sidekick is a production debugging and on-demand logging tool where you can debug your running applications while they keep on running. Sidekick provides the ability to add logs and put non-breaking breakpoints in your application code which captures the snapshot of the application state, the call stack, variables, and etc.
+Sidekick is a production debugging and on-demand logging tool where you can debug your running applications while they keep on running. Sidekick provides the ability to add logs and put non-breaking breakpoints in your application code which captures the snapshot of the application state, the call stack, variables, etc.
 
 Sidekick Actions:
-* A tracepoint is basically a non-breaking remote breakpoint. In short it takes a screenshot of the variables when the code hits that line.
-* Logpoints open the way of dynamic logging to Sidekick users. Replacing traditional logging with dynamic logging has potential to lower stage sizes, costs and time for log searching while adding ability to add new logpoints without editing the source code, redeopling or restarting the application
+* A tracepoint is basically a non-breaking remote breakpoint. In short, it takes a screenshot of the variables when the code hits that line.
+* Logpoints open the way for dynamic logging to Sidekick users. Replacing traditional logging with dynamic logging has the potential to lower stage sizes, costs, and time for log searching while adding the ability to add new logpoints without editing the source code, redeploying or restarting the application
 
-This recipe aims to help you send your collected tracepoint & logpoint events to your own Elasticserach instances.
+This recipe aims to help you send your collected tracepoint & logpoint events to your own Elasticsearch instances.
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -87,7 +87,7 @@ This recipe aims to help you send your collected tracepoint & logpoint events to
 
 ### Prerequisites
 
-This recipe has been tested with node v16.14.2
+tested with node v16.14.2
 * npm
   ```sh
   npm install npm@latest -g
