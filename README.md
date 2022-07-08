@@ -103,16 +103,35 @@ tested with node v16.14.2
    ```sh
    npm install
    ```
+
 3. Edit `config.json` according to your needs
    ```js
     "elasticsearch-url": "<>",
     "elasticsearch-apikey": "<>",
-    "sidekick_host": "ws://127.0.0.1",
-    "sidekick_port": "7777",
-    "sidekick_token": "",
+    "sidekick_email": "",
+    "sidekick_password": ""
+   ```
+
+  Log event index is sidekick_logpoint & snapshot event is sidekick_tracepoint by default. You can change them like below:
+
+   ```js
     "sidekick_tracepoint_index": "sidekick_tracepoint",
     "sidekick_logpoint_index": "sidekick_logpoint"
    ```
+   
+  if have an on-premise setup add the fields below according to your setup 
+
+   ```js
+    "sidekick_host": "ws://127.0.0.1",
+    "sidekick_port": "7777"
+   ```
+
+  if have your user token you can use it instead of email & password 
+
+   ```js
+    "sidekick_token": "<>"
+   ```
+
 4. Run!
    ```sh
    npm start
