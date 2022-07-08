@@ -9,12 +9,13 @@ const client = new Client({
 
 function ingestFunc (index) {
     return async function (data) {
-        
+
          client.index({
             index: index,
             document: data.frames[0].variables
         }).then((res)=>{
             console.log("Items saved: \n",res)
+
         })
     }
 }
@@ -29,6 +30,7 @@ const sidekickClient = {
     logpointFunction : ingestFunc(config['sidekick_logpoint_index'])
     //lpDetail : true //detailed log points
     ,stdout : true //console log
+
 }
 
 sidekickConnect(sidekickClient);
