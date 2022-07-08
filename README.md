@@ -59,6 +59,9 @@
 ## About The Recipe
 
 
+### Related blog post: https://medium.com/runsidekick/sidekick-recipes-1-elasticsearch-ingest-561d0970c030
+
+<br>
 Sidekick is a production debugging and on-demand logging tool where you can debug your running applications while they keep on running. Sidekick provides the ability to add logs and put non-breaking breakpoints in your application code which captures the snapshot of the application state, the call stack, variables, etc.
 
 Sidekick Actions:
@@ -112,21 +115,21 @@ tested with node v16.14.2
     "sidekick_password": ""
    ```
 
-  Log event index is sidekick_logpoint & snapshot event is sidekick_tracepoint by default. You can change them like below:
+  Log event index is sidekick_logpoint & snapshot event index is sidekick_tracepoint by default. You can override them like below:
 
    ```js
     "sidekick_tracepoint_index": "sidekick_tracepoint",
     "sidekick_logpoint_index": "sidekick_logpoint"
    ```
    
-  if have an on-premise setup add the fields below according to your setup 
+  If have an on-premise setup add the fields below according to your setup:
 
    ```js
     "sidekick_host": "ws://127.0.0.1",
     "sidekick_port": "7777"
    ```
 
-  if have your user token you can use it instead of email & password 
+  If have your user token you can use it instead of email & password :
 
    ```js
     "sidekick_token": "<>"
@@ -155,8 +158,10 @@ You can also run this recipe in a container. For this purpose a Dockerfile is lo
 - [x] Add Tracepoint Support
 - [x] Add Logpoint Support
 - [x] Add Logpoint Detail setting
-- [ ] Filter Logpoints
-- [ ] Filter Tracepoints
+- ~~[ ] Filter Logpoints~~
+- ~~[ ] Filter Tracepoints~~
+- [x] Custom ingest function (this also includes the filtering options above)
+- [ ] Update with the offical Sidekick client
 
 
 
