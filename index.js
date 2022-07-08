@@ -7,22 +7,25 @@ const client = new Client({
     auth: { apiKey: config['elasticsearch-apikey'] }
 })
 
-async function ingest(index,data) {
-    await client.index({
-        index: index,
-        document: data
-    })
+function ingestFunc (index) {
+    return async function (data) {
+        await client.index({
+            index: index,
+            document: data
+        })
+    }
 }
 
 const sidekickClient = {
-    sidekick_host : config.sidekick_host, 
-    sidekick_port : config.sidekick_port, 
-    token : config.sidekick_token, 
-    //tracepointFunction : ingest, 
-    //tpIndex : config.sidekick_tracepoint_index, 
-    logpointFunction : ingest, 
-    lpIndex : config.sidekick_logpoint_index,
+    sidekick_host : config['sidekick_host'], 
+    sidekick_port : config['sidekick_port'], 
+    sidekick_token : config['sidekick_token'], 
+    sidekick_email : config['sidekick_email'], 
+    sidekick_password : config['sidekick_password'], 
+    tracepointFunction : ingestFunc(config['sidekick_tracepoint_index']), 
+    logpointFunction : ingestFunc(config['sidekick_logpoint_index'])
     //lpDetail : true //detailed log points
+    //stdout : true //console log
 }
 
 sidekickConnect(sidekickClient);
