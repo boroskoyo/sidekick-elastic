@@ -100,7 +100,7 @@ tested with node v16.14.2
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/boroskoyo/sidekickelastic.git
+   git clone https://github.com/boroskoyo/sidekick-elastic.git
    ```
 2. Install NPM packages
    ```sh
