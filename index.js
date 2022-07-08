@@ -25,7 +25,7 @@ const sidekickClient = {
     tracepointFunction : ingestFunc(config['sidekick_tracepoint_index']), 
     logpointFunction : ingestFunc(config['sidekick_logpoint_index'])
     //lpDetail : true //detailed log points
-    //stedout : true //console log
+    //stdout : true //console log
 }
 
 sidekickConnect(sidekickClient);
