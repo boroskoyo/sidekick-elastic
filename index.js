@@ -9,6 +9,7 @@ const client = new Client({
 
 function ingestFunc (index) {
     return async function (data) {
+        
          client.index({
             index: index,
             document: data.frames[0].variables
