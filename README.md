@@ -95,7 +95,7 @@ tested with node v16.14.2
 
 ### Installation
 
-1. Clone the repo
+1. Install sidekick-client
    ```sh
    npm i sidekick-client
    ```
@@ -111,7 +111,6 @@ You can use sidekick client with any db integration, here is a elasticsearch int
    ```js
     "elasticsearch-url": "<>",
     "elasticsearch-apikey": "<>",
-    "sidekick_token": "",
     "sidekick_tracepoint_index": "sidekick_tracepoint",
     "sidekick_logpoint_index": "sidekick_logpoint",
     "sidekick_email":"<>",
