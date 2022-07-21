@@ -1,9 +1,0 @@
-{
-    "elasticsearch-url": "<>",
-    "elasticsearch-apikey": "<>",
-    "sidekick_host": "ws://127.0.0.1",
-    "sidekick_port": "7777",
-    "sidekick_token": "",
-    "sidekick_tracepoint_index": "sidekick_tracepoint",
-    "sidekick_logpoint_index": "sidekick_logpoint"
-}

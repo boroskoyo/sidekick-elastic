@@ -22,7 +22,7 @@ var sidekickConnect = function (clientInfo) {
     headers: {
       ...(!token && { "x-sidekick-email": email }),
       ...(!token && { "x-sidekick-password": password }),
-      ...(token && { "x-sidekick_token": token }),
+      ...(token && { "x-sidekick-token": token }),
     },
   };
 
