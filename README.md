@@ -98,66 +98,42 @@ tested with node v16.14.2
 
 ### Installation
 
-1. Install sidekick-client
+1. Clone the repo
    ```sh
-   npm i sidekick-client
+   git clone https://github.com/boroskoyo/sidekick-elastic.git
    ```
 2. Install NPM packages
    ```sh
    npm install
    ```
 
-### Example usage
-You can use sidekick client with any db integration, here is a elasticsearch integration example:
-
-1. Edit `config.json` according to your needs
+3. Edit `config.json` according to your needs
    ```js
     "elasticsearch-url": "<>",
     "elasticsearch-apikey": "<>",
-    "sidekick_tracepoint_index": "sidekick_tracepoint",
-    "sidekick_logpoint_index": "sidekick_logpoint",
-    "sidekick_email":"<>",
-    "sidekick_password":"<>",
+    "sidekick_email": "",
+    "sidekick_password": ""
    ```
 
-2. Create an `ingest` function with using elasticsearch client:
-    ```js
-        const client = new Client({
-            node: config['elasticsearch-url'],
-            auth: { apiKey: config['elasticsearch-apikey'] }
-        })
+  Log event index is sidekick_logpoint & snapshot event index is sidekick_tracepoint by default. You can override them like below:
 
-        function ingestFunc (index) {
-            return async function (data) {
-                
-                client.index({
-                    index: index,
-                    document: data.frames[0].variables
-                }).then((res)=>{
-                    console.log("Items saved: \n",res)
-                })
-            }
-        }
-    ```
-3. Call sidekickconnect function with proper parameters.
-    
-    ```js
-        const { sidekickConnect } = require('sidekickingesterbeta')
+   ```js
+    "sidekick_tracepoint_index": "sidekick_tracepoint",
+    "sidekick_logpoint_index": "sidekick_logpoint"
+   ```
+   
+  If have an on-premise setup add the fields below according to your setup:
 
-        const sidekickClient = {
-            sidekick_host : config['sidekick_host'], 
-            sidekick_port : config['sidekick_port'], 
-            sidekick_token : config['sidekick_token'], 
-            sidekick_email : config['sidekick_email'], 
-            sidekick_password : config['sidekick_password'], 
-            tracepointFunction : ingestFunc(config['sidekick_tracepoint_index']),
-            logpointFunction : ingestFunc(config['sidekick_logpoint_index']),
-            stdout : true //console log
-        }
+   ```js
+    "sidekick_host": "ws://127.0.0.1",
+    "sidekick_port": "7777"
+   ```
 
-        sidekickConnect(sidekickClient);
-        ```
+  If have your user token you can use it instead of email & password :
 
+   ```js
+    "sidekick_token": "<>"
+   ```
 
 4. Run!
    ```sh
