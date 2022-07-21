@@ -97,22 +97,66 @@ tested with node v16.14.2
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/boroskoyo/sidekickelastic.git
+   npm i sidekick-client
    ```
 2. Install NPM packages
    ```sh
    npm install
    ```
-3. Edit `config.json` according to your needs
+
+### Example usage
+You can use sidekick client with any db integration, here is a elasticsearch integration example:
+
+1. Edit `config.json` according to your needs
    ```js
     "elasticsearch-url": "<>",
     "elasticsearch-apikey": "<>",
-    "sidekick_host": "ws://127.0.0.1",
-    "sidekick_port": "7777",
     "sidekick_token": "",
     "sidekick_tracepoint_index": "sidekick_tracepoint",
-    "sidekick_logpoint_index": "sidekick_logpoint"
+    "sidekick_logpoint_index": "sidekick_logpoint",
+    "sidekick_email":"<>",
+    "sidekick_password":"<>",
    ```
+
+2. Create an `ingest` function with using elasticsearch client:
+    ```js
+        const client = new Client({
+            node: config['elasticsearch-url'],
+            auth: { apiKey: config['elasticsearch-apikey'] }
+        })
+
+        function ingestFunc (index) {
+            return async function (data) {
+                
+                client.index({
+                    index: index,
+                    document: data.frames[0].variables
+                }).then((res)=>{
+                    console.log("Items saved: \n",res)
+                })
+            }
+        }
+    ```
+3. Call sidekickconnect function with proper parameters.
+    
+    ```js
+        const { sidekickConnect } = require('sidekickingesterbeta')
+
+        const sidekickClient = {
+            sidekick_host : config['sidekick_host'], 
+            sidekick_port : config['sidekick_port'], 
+            sidekick_token : config['sidekick_token'], 
+            sidekick_email : config['sidekick_email'], 
+            sidekick_password : config['sidekick_password'], 
+            tracepointFunction : ingestFunc(config['sidekick_tracepoint_index']),
+            logpointFunction : ingestFunc(config['sidekick_logpoint_index']),
+            stdout : true //console log
+        }
+
+        sidekickConnect(sidekickClient);
+        ```
+
+
 4. Run!
    ```sh
    npm start
