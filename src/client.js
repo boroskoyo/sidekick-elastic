@@ -43,66 +43,40 @@ var sidekickConnect = function (clientInfo) {
 
       try {
         dataJSON = JSON.parse(data);
-        if (
-          dataJSON.name === "TracePointSnapshotEvent" &&
-          (tracepointFunction || stdout)
-        ) {
+        if (dataJSON.name === "TracePointSnapshotEvent") {
+
           if (tracepointFunction) {
-            try {
               tracepointFunction(dataJSON);
-            } catch {
-              console.log("trace send error");
-            }
+          }else{
+            console.log("Tracepoint function might not be initialized")
           }
-          if (stdout) {
-            try {
-              console.log(dataJSON);
-            } catch {
-              console.log("trace send error");
-            }
-          }
-        }
-        if (dataJSON.name === "LogPointEvent" && (logpointFunction || stdout)) {
-          let data = {
-            id: dataJSON.id,
-            fileName: dataJSON.fileName,
-            className: dataJSON.className,
-            lineNo: dataJSON.lineNo,
-            logMessage: dataJSON.logMessage,
-            time: dataJSON.time,
-          };
 
-          if (lpDetail) data = dataJSON;
-
+        }else if (dataJSON.name === "LogPointEvent") {
+        
           if (logpointFunction) {
-            try {
               logpointFunction(data);
-              console.log("log sent");
-            } catch {
-              console.log("log send error");
-            }
+          }else{
+            console.log("Logpoint function might not be initialized")
           }
-          if (stdout) {
-            try {
-              console.log(data);
-              console.log("log sent");
-            } catch {
-              console.log("log send error");
-            }
-          }
+          
         }
-      } catch {
-        console.log("parse error");
+        if (stdout) { 
+              console.log("Received data from sidekick:\n ",dataJSON);
+          }
+      } catch(err) {
+        console.log(err);
       }
+
+
     });
 
-    ws.on("error", function () {
-      console.log("socket error");
+    ws.on("error", function (value) {
+        console.log(value)
       setTimeout(connect, reconnectInterval);
     });
 
     ws.on("close", function () {
-      console.log("socket close");
+      console.log("Sidekick broker connection : closed.");
       setTimeout(connect, reconnectInterval);
     });
   };

@@ -1,16 +1,22 @@
 {
-  "name": "sidekickelastic",
+  "name": "sidekickingesterbeta",
   "version": "1.0.0",
-  "description": "",
+  "description": "Open source runsidekick ingester ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meminb/sidekickelastic.git"
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meminb/sidekickelastic/issues"
+  },
+  "homepage": "https://github.com/meminb/sidekickelastic#readme",
   "dependencies": {
-    "@elastic/elasticsearch": "^8.2.1",
-    "ws": "^8.8.0"
+    "ws": "^8.8.1"
   }
 }
