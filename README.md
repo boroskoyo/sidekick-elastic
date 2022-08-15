@@ -161,7 +161,7 @@ You can also run this recipe in a container. For this purpose a Dockerfile is lo
 - ~~[ ] Filter Logpoints~~
 - ~~[ ] Filter Tracepoints~~
 - [x] Custom ingest function (this also includes the filtering options above)
-- [ ] Update with the offical Sidekick client
+- [x] Update with the offical Sidekick client
 
 
 
