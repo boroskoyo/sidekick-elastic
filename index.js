@@ -1,5 +1,5 @@
 'use strict'
-const { onTrigger } = require('sidekick-client');
+const { onTrigger } = require('@runsidekick/sidekick-client');
 let config = require('./config.json');
 const { Client } = require('@elastic/elasticsearch');
 const client = new Client({
