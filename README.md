@@ -65,7 +65,7 @@
 Sidekick is a production debugging and on-demand logging tool where you can debug your running applications while they keep on running. Sidekick provides the ability to add logs and put non-breaking breakpoints in your application code which captures the snapshot of the application state, the call stack, variables, etc.
 
 Sidekick Actions:
-* A tracepoint is basically a non-breaking remote breakpoint. In short, it takes a screenshot of the variables when the code hits that line.
+* A tracepoint is basically a non-breaking remote breakpoint. In short, it takes a snapshot of the variables when the code hits that line.
 * Logpoints open the way for dynamic logging to Sidekick users. Replacing traditional logging with dynamic logging has the potential to lower stage sizes, costs, and time for log searching while adding the ability to add new logpoints without editing the source code, redeploying or restarting the application
 
 This recipe aims to help you send your collected tracepoint & logpoint events to your own Elasticsearch instances.
